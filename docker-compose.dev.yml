@@ -1,0 +1,12 @@
+services:
+  cloud-resume:
+      build:
+        context: ./app
+        dockerfile: Dockerfile 
+      image: cloud-resume-platform:dev
+      container_name: cloud-resume-dev
+      ports:  
+        - "8080:80"
+      restart: unless-stopped
+
+
