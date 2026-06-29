@@ -38,3 +38,16 @@ jobs:
         run: |
           sleep 10 
           curl -f http://localhost:8080
+      - name: Discord Success Notification
+        if: success()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d "{\"content\":\"✅ Cloud Resume deployment succeeded.\nRepo: ${{ github.repository }}\nBranch: main\nImage: syedaftab04/cloud-resume-platform:latest\"}" \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      - name: Discord Failure Notification
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d "{\"content\":\"❌ Cloud Resume deployment failed.\nRepo: ${{ github.repository }}\nCheck GitHub Actions logs.\"}" \
+          ${{ secrets.DISCORD_WEBHOOK_URL }}
