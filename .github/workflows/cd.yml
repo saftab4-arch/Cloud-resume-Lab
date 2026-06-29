@@ -30,8 +30,8 @@ jobs:
 
       - name: Deploy Container
         run: |
-          docker rm -f cloud-resume-prod || true
-          docker compose -f docker-compose.prod.yml up -d --force-recreate
+          docker compose -p cloud-resume -f docker-compose.prod.yml down
+          docker compose -p cloud-resume -f docker-compose.prod.yml up -d --force-recreate
 
       - name: Smoke Test
         run: curl -f http://localhost:8080
