@@ -4,7 +4,7 @@ function App() {
   return (
     <main className="page">
       <section className="hero">
-        <p className="badge">Cloud Resume Platform</p>
+        <p className="badge">Cloud Resume Platform v1</p>
         <h1>Syed Aftab</h1>
         <h2>Cloud / DevOps Engineer in Training</h2>
         <p className="summary">
